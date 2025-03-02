@@ -55,6 +55,7 @@
   # Sytem packages
   environment.systemPackages = with pkgs; [
     git
+    gcc
     python3
     neovim
     docker
