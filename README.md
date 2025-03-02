@@ -102,3 +102,17 @@ As this is currently an experimental feature, to use Nix flakes, add the followi
 -   User environment settings.
 -   Personal package installations.
 -   Personal aliases.
+
+## Applying Configuration
+
+### System-wide Build
+
+```bash
+sudo nixos-rebuild switch --flake ~/.dotfiles
+```
+
+### User-specific Build
+
+```bash
+home-manager switch --flake ~/.dotfiles
+```
