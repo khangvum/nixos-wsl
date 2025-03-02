@@ -27,28 +27,28 @@ A **_NixOS configuration_** tailored for running within **_Windows Subsystem for
 
 ### password
 
-`password` is used for secure secrets management, such as handling user password.
+`password` is used for secure **_secrets management_**, such as handling user password.
 
-1.  Create secrets management directory:
+1.  Create **_secrets management directory_**:
 
     ```bash
     sudo mkdir -p /etc/nixos/secrets
     ```
 
-2.  Generate and add the hashed password to the file:
+2.  Generate and add the **_hashed password_** to the file:
 -   For example, generate a SHA-512 hashed password using `mkpasswd`:
 
     ```bash
     mkpasswd -m sha-512
     ```
 
--   Add the hashed password to the file (Replace `<HASHED_PASSWORD>` with the generated hashed password above):
+-   Add the **_hashed password_** to the file (Replace `<HASHED_PASSWORD>` with the generated hashed password above):
 
     ```bash
     echo <HASHED_PASSWORD> | sudo tee /etc/nixos/secrets/password > /dev/null
     ```
 
-3.  Set restricted permission:
+3.  Set **_restricted permission_**:
 
     ```bash
     sudo chmod 600 /etc/nixos/secrets/password
@@ -56,8 +56,9 @@ A **_NixOS configuration_** tailored for running within **_Windows Subsystem for
 
 ### flake.nix
 
-`flake.nix` is used in the Nix package manager to define a Nix flake, providing a more standardized and reproducible way to manage Nix-based projects. 
--   This file specifies the inputs (dependencies) and outputs (packages and configurations) of the flake.
+`flake.nix` is used in the Nix package manager to define a Nix flake, providing a more **_standardized_** and **_reproducible_** way to manage Nix-based projects. This file specifies: 
+-   **Inputs:** External dependencies (_e.g._ `nixpkgs`, `nixos-wsl`).
+-   **Outputs:** Configurations, packages, and applications of the flake.
 
     ```nix
     {
@@ -75,19 +76,29 @@ A **_NixOS configuration_** tailored for running within **_Windows Subsystem for
     }
     ```
 
--   As this is currently an experimental feature, to use Nix flakes, add the following to the system configuration (`configuration.nix`):
+As this is currently an experimental feature, to use Nix flakes, add the following to the system configuration (`configuration.nix`):
 
     ```nix
     nix.settings.experimental-features = [ "nix-command" "flakes" ];
+    ```
 
 ### flake.lock
 
-`flake.lock` locks the dependencies of the Nix flake to specific versions, ensuring reproducibility and preventing unexpected updates of the configuration.
+`flake.lock` **_locks_** the dependencies of the Nix flake to **_specific versions_**, ensuring **_reproducibility_** and preventing **_unexpected updates_** of the configuration.
+-   It is **_auto-generated_** when building or updating the system using flakes.
+-   This can be stored in **_version control_** systems to ensure **_consistency_** across machines and collaborators.
 
 ### configuration.nix
 
-`configuration.nix` is the primary NixOS configuration file, defining system-wide settings and global configurations.
+`configuration.nix` is the primary NixOS configuration file, defining **_system-wide_** settings and **_global_** configurations, such as:
+-   System packages.
+-   Networking.
+-   WSL-specific settings.
+-   System services (_e.g._ Docker).
 
 ### home.nix
 
-`home.nix` contains user-specific configurations, such as user environment settings and personal package installations.
+`home.nix` contains **_user-specific_** configurations by utilizing [Home Manager](https://nix-community.github.io/home-manager/). For example:
+-   User environment settings.
+-   Personal package installations.
+-   Personal aliases.
