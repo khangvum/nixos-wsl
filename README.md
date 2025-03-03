@@ -78,9 +78,9 @@ A **_NixOS configuration_** tailored for running within **_Windows Subsystem for
 
 As this is currently an experimental feature, to use Nix flakes, add the following to the system configuration (`configuration.nix`):
 
-    ```nix
-    nix.settings.experimental-features = [ "nix-command" "flakes" ];
-    ```
+```nix
+nix.settings.experimental-features = [ "nix-command" "flakes" ];
+```
 
 ### flake.lock
 
