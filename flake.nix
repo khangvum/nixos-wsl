@@ -15,6 +15,7 @@
     let
       system = "x86_64-linux";
       version = "24.05";
+      hostname = "nixos";
       username = "khangvum";
 
       # Aliases      
@@ -22,7 +23,7 @@
       pkgs = nixpkgs.legacyPackages.${system};
     in {
     nixosConfigurations = {
-      nixos = lib.nixosSystem {
+      "${hostname}" = lib.nixosSystem {
         inherit system;
         modules = [
           ./configuration.nix
@@ -30,9 +31,7 @@
           vscode-server.nixosModules.default
         ];
         specialArgs = { 
-          inherit system;
-          inherit version;
-          inherit username;
+          inherit system version hostname username;
         };
       };
     };
@@ -44,8 +43,7 @@
           ./home.nix
         ];
         extraSpecialArgs = { 
-          inherit username;
-          inherit version;
+          inherit version username;
         };
       };
     };

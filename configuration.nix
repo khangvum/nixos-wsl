@@ -5,7 +5,7 @@
 # NixOS-WSL specific options are documented on the NixOS-WSL repository:
 # https://github.com/nix-community/NixOS-WSL
 
-{ config, lib, pkgs, version, username, ... }:
+{ config, lib, pkgs, version, hostname, username, ... }:
 
 {
   # imports = [
@@ -25,12 +25,16 @@
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = version; # Did you read the comment?
 
+  # Hostname
+  networking.hostName = hostname;
+
+  # Enable Nix flake
   nix.settings.experimental-features = [
     "nix-command"
     "flakes"
   ];
 
-  # User setings
+  # User settings
   users.mutableUsers = false;
   # - passwd {name}
   # - mkpasswd -m sha-512
