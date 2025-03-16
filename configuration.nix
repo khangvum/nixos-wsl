@@ -40,7 +40,7 @@
   # - mkpasswd -m sha-512
   users.users.${username} = {
     isNormalUser = true;
-    hashedPasswordFile = "/etc/nixos/secrets/password";
+    hashedPasswordFile = "/home/${username}/.dotfiles/secrets/password";
     extraGroups = [
       "wheel"
       "docker" 
@@ -67,6 +67,8 @@
     powershell
     nettools
     termshark
+    ansible
+    terraform
     wget  # For vscode-server
   ];
 
