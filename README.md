@@ -12,13 +12,11 @@ A **_NixOS configuration_** tailored for running within **_Windows Subsystem for
 ## Filesystem Hierarchy
 
 ```
-├── etc
-│   └── nixos
-│       └── secrets
-│           └── password
 └── home
     └── khangvum
         └── .dotfiles
+            ├── secrets
+            │   └── password
             ├── flake.nix
             ├── flake.lock
             ├── configuration.nix
@@ -30,28 +28,21 @@ A **_NixOS configuration_** tailored for running within **_Windows Subsystem for
 `password` is used for secure **_secrets management_**, such as handling user password.
 
 1.  Create **_secrets management directory_**:
-
     ```bash
-    sudo mkdir -p /etc/nixos/secrets
+    mkdir -p ~/.dotfiles/secrets
     ```
-
 2.  Generate and add the **_hashed password_** to the file:
 -   For example, generate a SHA-512 hashed password using `mkpasswd`:
-
     ```bash
     mkpasswd -m sha-512
     ```
-
 -   Add the **_hashed password_** to the file (Replace `<HASHED_PASSWORD>` with the generated hashed password above):
-
     ```bash
-    echo <HASHED_PASSWORD> | sudo tee /etc/nixos/secrets/password > /dev/null
+    echo '<HASHED_PASSWORD>' | sudo tee ~/.dotfiles/secrets/password > /dev/null
     ```
-
 3.  Set **_restricted permission_**:
-
     ```bash
-    sudo chmod 600 /etc/nixos/secrets/password
+    sudo chmod 600 ~/.dotfiles/secrets/password
     ```
 
 ### flake.nix
