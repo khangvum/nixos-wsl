@@ -16,41 +16,13 @@ A **_NixOS configuration_** tailored for running within **_Windows Subsystem for
     └── khangvum
         └── .dotfiles
             ├── secrets
-            │   └── password
+            │   ├── password
+            │   └── ssh
             ├── flake.nix
             ├── flake.lock
             ├── configuration.nix
             └── home.nix
 ```
-
-### password
-
-`password` is used for secure **_secrets management_**, such as handling user password.
-
-1.  Create **_secrets management directory_**:
-
-    ```bash
-    mkdir -p ~/.dotfiles/secrets
-    ```
-
-2.  Generate and add the **_hashed password_** to the file:
--   For example, generate a SHA-512 hashed password using `mkpasswd`:
-
-    ```bash
-    mkpasswd -m sha-512
-    ```
-
--   Add the **_hashed password_** to the file (Replace `<HASHED_PASSWORD>` with the generated hashed password above):
-
-    ```bash
-    echo '<HASHED_PASSWORD>' | sudo tee ~/.dotfiles/secrets/password > /dev/null
-    ```
-
-3.  Set **_restricted permission_**:
-
-    ```bash
-    sudo chmod 600 ~/.dotfiles/secrets/password
-    ```
 
 ### flake.nix
 
@@ -96,10 +68,25 @@ nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
 ### home.nix
 
-`home.nix` contains **_user-specific_** configurations by utilizing [Home Manager](https://nix-community.github.io/home-manager/). For example:
+`home.nix` contains **_user-specific_** configurations utilizing [Home Manager](https://nix-community.github.io/home-manager/). For example:
 -   User environment settings.
--   Personal package installations.
+-   User-specific package installations.
 -   Personal aliases.
+
+### secrets
+
+The `secrets` directory is used for **_secrets management_**, including:
+
+File        |Description
+:----------:|:----------
+`password`  |Contains the **_hashed password_** for the user
+`ssh`       |Holds the **_OpenSSH public key_** authorization
+
+These files should have **_restricted permission_** to prevent unauthorized access:
+
+```bash
+sudo chmod 600 ~/.dotfiles/secrets/password
+```
 
 ## Applying Configuration
 
