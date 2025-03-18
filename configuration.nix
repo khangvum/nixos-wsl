@@ -35,9 +35,11 @@
   ];
 
   # SSH
-  services.openssh.enable = true;
-  services.openssh.authorizedKeysFiles = [ "/home/${username}/.dotfiles/secrets/ssh" ];
-
+  services.openssh = {
+    enable = true;
+    authorizedKeysFiles = [ "/home/${username}/.dotfiles/secrets/ssh" ];
+  };
+  
   # User settings
   users.mutableUsers = false;
   # - passwd {name}
