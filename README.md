@@ -90,6 +90,14 @@ sudo chmod 600 ~/.dotfiles/secrets/password
 
 ## Applying Configuration
 
+1.  **Clone the repository:**
+
+    ```bash
+    git clone https://github.com/khangvum/ubuntu-22.04-ros-wsl.git ~/.dotfiles
+    ```
+
+2.  **Apply the settings:**
+
 ### System-wide Build
 
 ```bash
