@@ -98,14 +98,14 @@ sudo chmod 600 ~/.dotfiles/secrets/password
 
 2.  **Apply the settings:**
 
-### System-wide Build
+-   System-wide Build:
 
-```bash
-sudo nixos-rebuild switch --flake ~/.dotfiles
-```
+    ```bash
+    sudo nixos-rebuild switch --flake ~/.dotfiles
+    ```
 
-### User-specific Build
+-   User-specific Build
 
-```bash
-home-manager switch --flake ~/.dotfiles
-```
+    ```bash
+    home-manager switch --flake ~/.dotfiles
+    ```
