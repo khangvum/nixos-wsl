@@ -18,6 +18,13 @@ A **_NixOS configuration_** tailored for running within **_Windows Subsystem for
             ├── secrets
             │   ├── password
             │   └── ssh
+            ├── system
+            │   ├── docker.nix
+            │   ├── ssh.nix
+            │   └── wsl.nix
+            ├── user
+            │   ├── bash.nix
+            │   └── git.nix
             ├── flake.nix
             ├── flake.lock
             ├── configuration.nix
@@ -26,31 +33,9 @@ A **_NixOS configuration_** tailored for running within **_Windows Subsystem for
 
 ### flake.nix
 
-`flake.nix` is used in the Nix package manager to define a Nix flake, providing a more **_standardized_** and **_reproducible_** way to manage Nix-based projects. This file specifies: 
+`flake.nix` is used in the Nix package manager to define a **_[Nix flake](https://nixos.wiki/wiki/flakes)_**, providing a more **_standardized_** and **_reproducible_** way to manage Nix-based projects. This file specifies: 
 -   **Inputs:** External dependencies (_e.g._ `nixpkgs`, `nixos-wsl`).
 -   **Outputs:** Configurations, packages, and applications of the flake.
-
-    ```nix
-    {
-      inputs = {
-        nixpkgs.url = "github:nixos/nixpkgs/nixos-24.05";
-        nixos-wsl.url = "github:nix-community/nixos-wsl";
-      };
-
-      outputs = inputs@{ self, nixpkgs, nixos-wsl, ... }: {
-        nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
-          system = "x86_64-linux";
-          modules = [ ./configuration.nix ];
-        };
-      };
-    }
-    ```
-
-As this is currently an experimental feature, to use Nix flakes, add the following to the system configuration (`configuration.nix`):
-
-```nix
-nix.settings.experimental-features = [ "nix-command" "flakes" ];
-```
 
 ### flake.lock
 
@@ -60,18 +45,28 @@ nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
 ### configuration.nix
 
-`configuration.nix` is the primary NixOS configuration file, defining **_system-wide_** settings and **_global_** configurations, such as:
+`configuration.nix` is the primary NixOS configuration file, defining **_system-wide_** settings and **_global_** configurations, including:
 -   System packages.
 -   Networking.
--   WSL-specific settings.
--   System services (_e.g._ Docker).
+-   External modules:
+
+File        |Description
+:----------:|:----------
+`docker.nix`|**_Docker_** configuration
+`ssh.nix`   |**_SSH_** server settings and **_keys_**
+`wsl.nix`   |**_WSL-specific_** settings
 
 ### home.nix
 
-`home.nix` contains **_user-specific_** configurations utilizing [Home Manager](https://nix-community.github.io/home-manager/). For example:
+`home.nix` utilizes [Home Manager](https://nix-community.github.io/home-manager/) to configure **_user-specific_** settings, such as:
 -   User environment settings.
 -   User-specific package installations.
--   Personal aliases.
+-   External modules:
+
+File        |Description
+:----------:|:----------
+`bash.nix`  |Bash shell **_aliases_**
+`git.nix`   |**_Git credentials_** and configurations
 
 ### secrets
 
@@ -79,8 +74,8 @@ The `secrets` directory is used for **_secrets management_**, including:
 
 File        |Description
 :----------:|:----------
-`password`  |Contains the **_hashed password_** for the user
-`ssh`       |Holds the **_OpenSSH public key_** authorization
+`password`  |**_Hashed password_** for the user
+`ssh`       |**_OpenSSH public key_** authorization
 
 These files should have **_restricted permission_** to prevent unauthorized access:
 
