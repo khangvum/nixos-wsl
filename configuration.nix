@@ -8,14 +8,11 @@
 { config, lib, pkgs, version, hostname, username, ... }:
 
 {
-  # imports = [
-  #  
-  # ];
-
-  wsl = {
-    enable = true;
-    defaultUser = username;
-  };
+  imports = [
+    system/wsl.nix
+    system/ssh.nix
+    system/docker.nix
+  ];
   
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
@@ -33,12 +30,6 @@
     "nix-command"
     "flakes"
   ];
-
-  # SSH
-  services.openssh = {
-    enable = true;
-    authorizedKeysFiles = [ "/home/${username}/.dotfiles/secrets/ssh" ];
-  };
   
   # User settings
   users.mutableUsers = false;
@@ -73,13 +64,8 @@
     powershell
     nettools
     termshark
-    ansible
-    terraform
     wget  # For vscode-server
   ];
-
-  # docker
-  virtualisation.docker.enable = true;
 
   # vscode-server
   services.vscode-server.enable = true;
