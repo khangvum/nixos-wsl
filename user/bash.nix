@@ -30,7 +30,6 @@
       "shutdown" ="sudo shutdown";
     };
     initExtra = ''
-    
       # Change the default directory to user's home directory
       cd ~
     '';
