@@ -1,6 +1,11 @@
 { config, pkgs, version, username, ... }:
 
 {
+  imports = [
+    user/bash.nix
+    user/git.nix
+  ];
+
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   home.username = username;
@@ -69,50 +74,6 @@
   #
   home.sessionVariables = {
     # EDITOR = "emacs";
-  };
-
-  programs.bash = {
-    enable = true;
-    shellAliases = {
-      # - ~/.dotfiles
-      ".dotfiles"="cd ~/.dotfiles";
-
-      # - cd
-      ".." = "cd ..";
-      "..." = "cd ../../../";
-      "...." = "cd ../../../../";
-      "....." = "cd ../../../../";
-      ".4" = "cd ../../../../";
-      ".5" = "cd ../../../../..";
-
-      # - clear
-      "c" = "clear";
-      "cls" = "clear";
-
-      # - sudo
-      "su" = "sudo -i";
-      "root" = "sudo -i";
-
-      # - reboot/poweroff/halt/shutdown
-      "reboot" = "sudo reboot";
-      "poweroff" = "sudo poweroff";
-      "halt" = "sudo halt";
-      "shutdown" ="sudo shutdown";
-    };
-    initExtra = ''
-      # Change the default directory to user's home directory
-      cd ~
-    '';
-  };
-
-  # git
-  programs.git = {
-    enable = true;
-    userName = "khangvum";
-    userEmail = "manhkhang0305@gmail.com";
-    extraConfig = {
-      init.defaultBranch = "master";
-    };
   };
 
   # Let Home Manager install and manage itself.
