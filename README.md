@@ -54,7 +54,7 @@ File        |Description
 :----------:|:----------
 `docker.nix`|**_Docker_** configuration
 `ssh.nix`   |**_SSH_** server settings and **_keys_**
-`wsl.nix`   |**_WSL-specific_** settings
+`wsl.nix`   |**_WSL-specific_** settings, configured in `/etc/wsl.conf`
 
 ### home.nix
 
