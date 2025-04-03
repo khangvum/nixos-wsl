@@ -106,4 +106,4 @@ sudo chmod 600 ~/.dotfiles/secrets/password
     ```
 
 >   [!NOTE]
->   Home Manager must be configured in the environment using the [Standalone installation](https://nix-community.github.io/home-manager/index.xhtml#sec-install-standalone) prior to executing the command
+>   Home Manager must be configured in the environment using the [Standalone installation](https://nix-community.github.io/home-manager/index.xhtml#sec-install-standalone) prior to executing the command.
