@@ -1,8 +1,8 @@
-{ config, lib, pkgs, username, ... }:
+{ config, lib, pkgs, username, dotfiles_path, ... }:
 
 {
   services.openssh = {
     enable = true;
-    authorizedKeysFiles = [ "/home/${username}/.dotfiles/secrets/ssh" ];
+    authorizedKeysFiles = [ "${dotfiles_path}/secrets/ssh" ];
   };
 }

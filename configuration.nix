@@ -5,7 +5,7 @@
 # NixOS-WSL specific options are documented on the NixOS-WSL repository:
 # https://github.com/nix-community/NixOS-WSL
 
-{ config, lib, pkgs, version, hostname, username, ... }:
+{ config, lib, pkgs, version, hostname, username, dotfiles_path, ... }:
 
 {
   imports = [
@@ -37,7 +37,7 @@
   # - mkpasswd -m sha-512
   users.users.${username} = {
     isNormalUser = true;
-    hashedPasswordFile = "/home/${username}/.dotfiles/secrets/password";
+    hashedPasswordFile = "${dotfiles_path}/secrets/password";
     extraGroups = [
       "wheel"
       "docker" 

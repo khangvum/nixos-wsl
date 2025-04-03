@@ -1,11 +1,11 @@
-{ config, pkgs, ... }:
+{ config, pkgs, dotfiles_path, ... }:
 
 {
   programs.bash = {
     enable = true;
     shellAliases = {
       # - ~/.dotfiles
-      ".dotfiles"="cd ~/.dotfiles";
+      ".dotfiles"="cd ${dotfiles_path}";
 
       # - cd
       ".." = "cd ..";
