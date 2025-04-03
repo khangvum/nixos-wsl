@@ -1,6 +1,6 @@
 # NixOS-WSL Configuration
 
-A **_NixOS configuration_** tailored for running within **_Windows Subsystem for Linux_** (**_WSL_**). This setup promotes **_seamless integration_** between **_Windows_** and **_NixOS_** while preserving NixOS's renowned **_declarative configuration_** approach.
+A **_NixOS 24.11 configuration_** tailored for running within **_Windows Subsystem for Linux_** (**_WSL_**). This setup promotes **_seamless integration_** between **_Windows_** and **_NixOS_** while preserving NixOS's renowned **_declarative configuration_** approach.
 
 ## Features
 
@@ -12,8 +12,8 @@ A **_NixOS configuration_** tailored for running within **_Windows Subsystem for
 ## Filesystem Hierarchy
 
 ```
-└── home
-    └── khangvum
+└── etc
+    └── nixos
         └── .dotfiles
             ├── secrets
             │   ├── password
@@ -104,3 +104,6 @@ sudo chmod 600 ~/.dotfiles/secrets/password
     ```bash
     home-manager switch --flake ~/.dotfiles
     ```
+
+>   [!NOTE]
+>   Home Manager must be configured in the environment using the [Standalone installation](https://nix-community.github.io/home-manager/index.xhtml#sec-install-standalone) prior to executing the command
