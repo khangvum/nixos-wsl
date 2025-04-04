@@ -105,5 +105,5 @@ sudo chmod 600 /etc/nixos/.dotfiles/secrets/password
     home-manager switch --flake /etc/nixos/.dotfiles
     ```
 
-    >   [!NOTE]
-    >   Home Manager must be configured in the environment using the [Standalone installation](https://nix-community.github.io/home-manager/index.xhtml#sec-install-standalone) prior to executing the command.
+>   [!NOTE]
+>   Home Manager must be configured in the environment using the [Standalone installation](https://nix-community.github.io/home-manager/index.xhtml#sec-install-standalone) prior to executing the command.
