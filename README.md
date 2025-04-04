@@ -80,7 +80,7 @@ File        |Description
 These files should have **_restricted permission_** to prevent unauthorized access:
 
 ```bash
-sudo chmod 600 ~/.dotfiles/secrets/password
+sudo chmod 600 /etc/nixos/.dotfiles/secrets/password
 ```
 
 ## Applying Configuration
@@ -88,7 +88,7 @@ sudo chmod 600 ~/.dotfiles/secrets/password
 1.  **Clone the repository:**
 
     ```bash
-    git clone https://github.com/khangvum/ubuntu-22.04-ros-wsl.git ~/.dotfiles
+    git clone https://github.com/khangvum/ubuntu-22.04-ros-wsl.git /etc/nixos/.dotfiles
     ```
 
 2.  **Apply the settings:**
@@ -96,13 +96,13 @@ sudo chmod 600 ~/.dotfiles/secrets/password
 -   System-wide Build:
 
     ```bash
-    sudo nixos-rebuild switch --flake ~/.dotfiles
+    sudo nixos-rebuild switch --flake /etc/nixos/.dotfiles
     ```
 
 -   User-specific Build
 
     ```bash
-    home-manager switch --flake ~/.dotfiles
+    home-manager switch --flake /etc/nixos/.dotfiles
     ```
 
 >   [!NOTE]
