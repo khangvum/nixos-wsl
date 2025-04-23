@@ -57,6 +57,7 @@
   environment.systemPackages = with pkgs; [
     git
     gcc
+    ansible
     python3
     neovim
     docker
@@ -64,6 +65,7 @@
     powershell
     nettools
     termshark
+    openssh
     wget  # For vscode-server
   ];
 
