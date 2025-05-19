@@ -28,6 +28,9 @@
       "poweroff" = "sudo poweroff";
       "halt" = "sudo halt";
       "shutdown" ="sudo shutdown";
+
+      # - ssh
+      "ssha" = "eval $(ssh-agent -s) && ssh-add ~/.ssh/id_rsa";
     };
     initExtra = ''
       # Change the default directory to user's home directory
