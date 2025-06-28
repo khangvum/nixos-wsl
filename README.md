@@ -88,7 +88,7 @@ sudo chmod 600 /etc/nixos/.dotfiles/secrets/password
 1.  **Clone the repository:**
 
     ```bash
-    git clone https://github.com/khangvum/ubuntu-22.04-ros-wsl.git /etc/nixos/.dotfiles
+    git clone https://github.com/khangvum/nixos-wsl.git /etc/nixos/.dotfiles
     ```
 
 2.  **Apply the settings:**
