@@ -83,6 +83,20 @@ These files should have **_restricted permission_** to prevent unauthorized acce
 sudo chmod 600 /etc/nixos/.dotfiles/secrets/password
 ```
 
+## Prerequisites
+
+1.  **_Windows Subsystem for Linux_** feature enabled:
+
+    ```powershell
+    DISM.exe /Online /Enable-Feature /FeatureName:Microsoft-Windows-Subsystem-Linux /All /NoRestart
+    ```
+
+2.  Update **_WSL_** to the **_latest version_**:
+
+    ```powershell
+    wsl --update
+    ```
+
 ## Applying Configuration
 
 1.  **Clone the repository:**
