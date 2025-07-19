@@ -91,7 +91,12 @@ sudo chmod 600 /etc/nixos/.dotfiles/secrets/password
     git clone https://github.com/khangvum/nixos-wsl.git /etc/nixos/.dotfiles
     ```
 
-2.  **Apply the settings:**
+2.  **Update the secret files:**
+
+-   Update [`password`](secrets/password_template) to specify your actual hashed password.
+-   Update [`ssh`](secrets/ssh_template) to capture the public SSH key.
+
+3.  **Apply the settings:**
 
 -   System-wide Build:
 
@@ -101,9 +106,9 @@ sudo chmod 600 /etc/nixos/.dotfiles/secrets/password
 
 -   User-specific Build
 
+    >   [!NOTE]
+    >   Home Manager must be configured in the environment using the [Standalone installation](https://nix-community.github.io/home-manager/index.xhtml#sec-install-standalone) prior to executing the command.
+
     ```bash
     home-manager switch --flake /etc/nixos/.dotfiles
     ```
-
->   [!NOTE]
->   Home Manager must be configured in the environment using the [Standalone installation](https://nix-community.github.io/home-manager/index.xhtml#sec-install-standalone) prior to executing the command.
