@@ -2,10 +2,10 @@
   description = "NixOS Configuration";
   
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
     nixos-wsl.url = "github:nix-community/nixos-wsl";
     home-manager = {
-      url = "github:nix-community/home-manager/release-24.11";
+      url = "github:nix-community/home-manager/release-25.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     vscode-server.url = "github:nix-community/nixos-vscode-server";
@@ -14,7 +14,7 @@
   outputs = inputs@{ self, nixpkgs, nixos-wsl, home-manager, vscode-server, ... }:
     let
       system = "x86_64-linux";
-      version = "24.11";
+      version = "25.05";
       hostname = "nixos";
       username = "khangvum";
       dotfiles_path = "/etc/nixos/.dotfiles";
