@@ -67,6 +67,7 @@
     termshark
     openssh
     wget  # For vscode-server
+    nodejs_24
   ];
 
   # vscode-server
