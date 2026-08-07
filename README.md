@@ -20,6 +20,7 @@ A **_NixOS 26.05 configuration_** tailored for running within **_Windows Subsyst
             │   └── ssh
             ├── system
             │   ├── docker.nix
+            │   ├── networking.nix
             │   ├── ssh.nix
             │   └── wsl.nix
             ├── user
@@ -50,14 +51,14 @@ A **_NixOS 26.05 configuration_** tailored for running within **_Windows Subsyst
 `configuration.nix` is the primary NixOS configuration file, defining **_system-wide_** settings and **_global_** configurations, including:
 
 - System packages.
-- Networking.
 - External modules:
 
-|     File     | Description                                                |
-| :----------: | :--------------------------------------------------------- |
-| `docker.nix` | **_Docker_** configuration                                 |
-|  `ssh.nix`   | **_SSH_** server settings and **_keys_**                   |
-|  `wsl.nix`   | **_WSL-specific_** settings, configured in `/etc/wsl.conf` |
+|       File       | Description                                                |
+| :--------------: | :--------------------------------------------------------- |
+|   `docker.nix`   | **_Docker_** configuration                                 |
+| `networking.nix` | **_Networking_** configuration                             |
+|    `ssh.nix`     | **_SSH_** server settings and **_keys_**                   |
+|    `wsl.nix`     | **_WSL-specific_** settings, configured in `/etc/wsl.conf` |
 
 ### home.nix
 
