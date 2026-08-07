@@ -9,9 +9,10 @@
 
 {
   imports = [
-    system/wsl.nix
-    system/ssh.nix
     system/docker.nix
+    system/networking.nix
+    system/ssh.nix
+    system/wsl.nix
   ];
   
   # This value determines the NixOS release from which the default
