@@ -25,6 +25,9 @@
   # Hostname
   networking.hostName = hostname;
 
+  # Timezone
+  time.timeZone = "America/Toronto";
+
   # Enable Nix flake
   nix.settings.experimental-features = [
     "nix-command"
