@@ -112,8 +112,8 @@ sudo chmod 600 /etc/nixos/.dotfiles/secrets/password
 
 2.  **Update the secret files:**
 
-- Update [`password`](secrets/password_template) to specify your actual hashed password.
-- Update [`ssh`](secrets/ssh_template) to capture the public SSH key.
+- Update [`password`](secrets/password.template) to specify your actual hashed password.
+- Update [`ssh`](secrets/ssh.template) to capture the public SSH key.
 
 3.  **Apply the settings:**
 
