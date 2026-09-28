@@ -2,6 +2,8 @@
 
 A **_NixOS 26.05 configuration_** tailored for running within **_Windows Subsystem for Linux_** (**_WSL_**). This setup promotes **_seamless integration_** between **_Windows_** and **_NixOS_** while preserving NixOS's renowned **_declarative configuration_** approach.
 
+[![Security Scan](https://github.com/khangvum/nixos-wsl/actions/workflows/security.yml/badge.svg)](https://github.com/khangvum/nixos-wsl/actions/workflows/security.yml)
+
 ## Features
 
 - Seamless **_Windows interoperability_**, minimizing the overhead of a traditional virtual machine.
